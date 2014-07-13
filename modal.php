@@ -1,9 +1,9 @@
-<?php require_once('../Connections/metcdb.php'); ?>
-<?php include('../php/cs5_function.php'); ?>
-<?php include('../php/calculate_price.php'); ?>
-<?php include('../global.php'); ?>
-<?php include('../php/yn_tally.php'); ?>
-<?php include('../php/modal-functions.php'); ?>
+<?php require_once('../../Connections/metcdb.php'); ?>
+<?php include('../../php/cs5_function.php'); ?>
+<?php include('../../php/calculate_price.php'); ?>
+<?php include('../../global.php'); ?>
+<?php include('../../php/yn_tally.php'); ?>
+<?php include('../../php/modal-functions.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,21 +13,21 @@
     <meta name="author" lang="en" content="Alexander W Clark">
     <meta name="robots" content="FOLLOW,INDEX">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="../alpha/jquery-dev-bundle/themes/base/jquery-ui.css" >
-    <link rel="stylesheet" type="text/css" href="../css/jquery.ui.theme.css" title="ui-theme" />
-    <link rel="stylesheet" type="text/css" href="../css/root-web-applications.css">
-    <link rel="stylesheet" type="text/css" href="../DataTables-1.9.4/media/css/demo_page.css">
-    <link rel="stylesheet" type="text/css" href="../DataTables-1.9.4/media/css/demo_table.css">
-    <link rel="stylesheet" type="text/css" href="../DataTables-1.9.4/media/css/demo_table_jui.css">
-    <link rel="stylesheet" type="text/css" href="../css/modal.css">
-    <script type="text/javascript" src="../js/sorttable.js"></script>
-    <script type="text/javascript" src="../js/jquery-1.9.1-min.js"></script>        
-    <script type="text/javascript" src="../js/jquery-ui-1.10.1.custom.min.js"></script>
-    <script type="text/javascript" src="../DataTables-1.9.4/media/js/jquery.dataTables.js" language="javascript" ></script>
-	<script type="text/javascript" src="../js/jquery.dataTables.editable.js"></script> 
-	<script type="text/javascript" src="../js/jquery.jeditable.mini.js"></script>
-    <script type="text/javascript" src="../js/dataTables.fnReloadAjax.js"></script>
-    <script type="text/javascript" src="../js/modal.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../alpha/jquery-dev-bundle/themes/base/jquery-ui.css" >
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.ui.theme.css" title="ui-theme" />
+    <link rel="stylesheet" type="text/css" href="../../css/root-web-applications.css">
+    <link rel="stylesheet" type="text/css" href="../../DataTables-1.9.4/media/css/demo_page.css">
+    <link rel="stylesheet" type="text/css" href="../../DataTables-1.9.4/media/css/demo_table.css">
+    <link rel="stylesheet" type="text/css" href="../../DataTables-1.9.4/media/css/demo_table_jui.css">
+    <link rel="stylesheet" type="text/css" href="../../css/modal.css">
+    <script type="text/javascript" src="../../js/sorttable.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.9.1-min.js"></script>        
+    <script type="text/javascript" src="../../js/jquery-ui-1.10.1.custom.min.js"></script>
+    <script type="text/javascript" src="../../DataTables-1.9.4/media/js/jquery.dataTables.js" language="javascript" ></script>
+	<script type="text/javascript" src="../../js/jquery.dataTables.editable.js"></script> 
+	<script type="text/javascript" src="../../js/jquery.jeditable.mini.js"></script>
+    <script type="text/javascript" src="../../js/dataTables.fnReloadAjax.js"></script>
+    <script type="text/javascript" src="../../js/modal.js"></script>
     <script type="text/javascript">
 	  $(function() {
 		  $( "#application" ).accordion({
@@ -64,9 +64,9 @@
 		  "bJQueryUI": true,
 		  "bLengthChange": false, //disables user ability to change the number of discounts displayed
 		  "bFilter": false,// displays Search box, setting false removes filter ability all together
-		  "sAjaxSource": "../php/class-user-discounts.php"
+		  "sAjaxSource": "../../php/class-user-discounts.php"
 		  });		  /* Apply the jEditable handlers to the table 
-		  $('td', oTable.fnGetNodes()).editable( '../DataTables-1.9.4/examples/examples_support/editable_ajax.php', {
+		  $('td', oTable.fnGetNodes()).editable( '../../DataTables-1.9.4/examples/examples_support/editable_ajax.php', {
 			  "callback": function( sValue, y ) {
 				  var aPos = oTable.fnGetPosition( this );
 				  oTable.fnUpdate( sValue, aPos[0], aPos[1] );
@@ -120,8 +120,8 @@
     </script>
     <script type="text/javascript" charset="utf-8">
 	  $(function() {
-		$(".editable_select").editable("../php/class-update-user-account.php", {
-			indicator : '<img src="../images/loading.gif">',
+		$(".editable_select").editable("../../php/class-update-user-account.php", {
+			indicator : '<img src="../../images/loading.gif">',
 			data   : "{'Lorem ipsum':'Lorem ipsum','Ipsum dolor':'Ipsum dolor','Dolor sit':'Dolor sit'}",
 			type   : "select",
 			submit : "OK",
@@ -130,15 +130,15 @@
 				return {id : 2};
 			}
 		});
-		$(".editable_select_json").editable("../php/class-update-user-account.php", {
-			indicator : '<img src="../images/loading.gif">',
+		$(".editable_select_json").editable("../../php/class-update-user-account.php", {
+			indicator : '<img src="../../images/loading.gif">',
 			loadurl : "http://www.appelsiini.net/projects/jeditable/php/json.php",
 			type   : "select",
 			submit : "OK",
 			style  : "inherit"
 		});
-		$(".editable_textarea").editable("../php/class-update-user-account.php", {
-			indicator : "<img src='../images/loading.gif'>",
+		$(".editable_textarea").editable("../../php/class-update-user-account.php", {
+			indicator : "<img src='../../images/loading.gif'>",
 			type   : 'text',
 			//id : 'elementid',
 			//name : 'newvalue',
@@ -148,8 +148,8 @@
 			cancel : 'cancel',
 			cssclass : "field"
 		});
-		$(".editable_textile").editable("../php/class-update-user-account.php?renderer=textile", {
-			indicator : "<img src='../images/loading.gif'>",
+		$(".editable_textile").editable("../../php/class-update-user-account.php?renderer=textile", {
+			indicator : "<img src='../../images/loading.gif'>",
 			loadurl   : "http://www.appelsiini.net/projects/jeditable/php/load.php",
 			type      : "textarea",
 			submit    : "OK",
@@ -158,25 +158,25 @@
 		});
 
 		$(".click").editable("http://www.appelsiini.net/projects/jeditable/php/echo.php", {
-			indicator : "<img src='../images/loading.gif'>",
+			indicator : "<img src='../../images/loading.gif'>",
 			tooltip   : "Click to edit...",
 			style  : "inherit"
 		});
 		$(".dblclick").editable("http://www.appelsiini.net/projects/jeditable/php/echo.php", {
-			indicator : "<img src='../images/loading.gif'>",
+			indicator : "<img src='../../images/loading.gif'>",
 			tooltip   : "Doubleclick to edit...",
 			event     : "dblclick",
 			style  : "inherit"
 		});
 		$(".mouseover").editable("http://www.appelsiini.net/projects/jeditable/php/echo.php", {
-			indicator : "<img src='../images/loading.gif'>",
+			indicator : "<img src='../../images/loading.gif'>",
 			tooltip   : "Move mouseover to edit...",
 			event     : "mouseover",
 			style  : "inherit"
 		});
 		/* Should not cause error. */
 		$("#nosuch").editable("http://www.appelsiini.net/projects/jeditable/php/echo.php", {
-			indicator : "<img src='../images/loading.gif'>",
+			indicator : "<img src='../../images/loading.gif'>",
 			type   : 'textarea',
 			submit : 'OK'
 		});
@@ -203,7 +203,7 @@
 			});
 		});*/
     </script>
-    <script type="text/javascript" src="../js/google.js"></script>
+    <script type="text/javascript" src="../../js/google.js"></script>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage"> 
     <div class="container">
@@ -228,7 +228,7 @@
             <legend></legend>
             <div id="cont" class="group">
               <span id="loginSpinner">
-                <img src="../images/loading.gif" class="spinner" alt="loading..." style="display: none;">
+                <img src="../../images/loading.gif" class="spinner" alt="loading..." style="display: none;">
               </span>
               <div id="logindiv">
                 <form 
@@ -284,19 +284,19 @@
 						   $( ".ship_state" ).html( '' );
 						   $( ".ship_zip" ).html( '' );
 						   $( "#submitButton" ).attr( 'value', "Sign In" );
-						   $.post("../php/logout.php");
+						   $.post("../../php/logout.php");
 						   $( "#logged-in-user-details-2" ).fadeOut( 0 ).html( "You are Logged out" ).delay( 1000 ).fadeIn( 2000 );
  				  } else {					  
                   $.ajax({
                       type:"POST",
-                      url:"../php/class-login.php",
+                      url:"../../php/class-login.php",
 					  
 					  //the data object contains the username and password and is 
 					  //used to submit the users credentials to the class-login.php script
                       data:{username:userName, password:passWord}
                       }).done(function( html ) {
                           $( "#disc_table" ).append(html);
-                          $.post("../php/class-raw-user-discounts.php", function(aaData){
+                          $.post("../../php/class-raw-user-discounts.php", function(aaData){
 							  $( ".id2" ).html( aaData.id );
 							  $( ".discount_code2" ).html( aaData.discount_code );
 							  $( ".type2" ).html( aaData.type );
@@ -308,7 +308,7 @@
 							  $( ".combinable2" ).html( aaData.combinable );
                          }, "json");
                           $( "#promptDiv" ).append(html);
-                          $.post("../php/class-account-details.php", function(data){
+                          $.post("../../php/class-account-details.php", function(data){
 							  $( "#logged-in-user-details" ).html( "Username: " + data.username + "<br>Customer ID: " + data.customerid );
 							  $( "#submitButton" ).attr( 'value', "Sign Out" );
 							  $( ".username" ).html( data.username );
@@ -328,7 +328,7 @@
 							  $( ".bill_phone" ).html( data.bill_phone );
                           }, "json");
 						  // $( "#disc_table" ).append( html );
-						   //$.post( "../php/class-account-details.php", function( data ) {
+						   //$.post( "../../php/class-account-details.php", function( data ) {
 							   //$( "						  						  
 						  $( "#logged-in-user-details" ).effect( "highlight", "easeOutBounce", 900 );
 
@@ -358,8 +358,8 @@
 							  "bJQueryUI": true,
 							  "bLengthChange": false, //disables user ability to change the number of discounts displayed
 							  "bFilter": false,// displays Search box, setting false removes filter ability all together
-							  "sAjaxSource": "../php/class-user-discounts.php"
-                          }).makeEditable( '../DataTables-1.9.4/examples/examples_support/editable_ajax.php', {
+							  "sAjaxSource": "../../php/class-user-discounts.php"
+                          }).makeEditable( '../../DataTables-1.9.4/examples/examples_support/editable_ajax.php', {
                               "callback": function( sValue, y ) {
                                   var aPos = oTable.fnGetPosition( this );
                                   oTable.fnUpdate( sValue, aPos[0], aPos[1] );
@@ -394,7 +394,7 @@
               <div id="tabs-1">
                 <table id="account-details">
                   <thead>
-                    <th>Account Details <a class="three-d-button" href="../myaccount/modify_personal_info.php">Modify</a></th>
+                    <th>Account Details <a class="three-d-button" href="../../myaccount/modify_personal_info.php">Modify</a></th>
                   </thead>
                   <tbody>
                     <tr>
@@ -410,7 +410,7 @@
                     <tr>
                       <th>Password</th>
                       <td>
-                        <a class="three-d-button" href="../myaccount/change_password.php">Change Password</a>
+                        <a class="three-d-button" href="../../myaccount/change_password.php">Change Password</a>
                       </td>
                     </tr>
                     <tr>
@@ -427,7 +427,7 @@
               <div id="tabs-2">
                 <table id="shipping-address">
                   <thead>
-                    <th>Shipping Address <a class="three-d-button" href="../myaccount/modify_ship_address.php">Modify</a></th>
+                    <th>Shipping Address <a class="three-d-button" href="../../myaccount/modify_ship_address.php">Modify</a></th>
                   </thead>
                   <tbody>
                     <tr>
@@ -456,7 +456,7 @@
               <div id="tabs-3">
                 <table id="payment-address">
                   <thead>
-                    <th>Payment Address <a class="three-d-button" href="../myaccount/modify_ship_address.php">Modify</a></th>
+                    <th>Payment Address <a class="three-d-button" href="../../myaccount/modify_ship_address.php">Modify</a></th>
                   </thead>
                   <tbody>
                     <tr>
@@ -489,7 +489,7 @@
               <div id="tabs-4">
                     <table id="order-history">
                         <thead>
-                        <th>Order History <a class="three-d-button" href="../myaccount/modify_ship_address.php">Modify</a></th>
+                        <th>Order History <a class="three-d-button" href="../../myaccount/modify_ship_address.php">Modify</a></th>
                         </thead>
                         <tbody>
                         <tr>
@@ -538,12 +538,12 @@
                   <tr class="code">
                     <td class="discount_code2" id="discount-code" width="119"><?php echo $row_query['discount_code']; ?></td>
                     <td class="applied2" id="applied" width="120">
-                      <?php include('../php/class-discount.php'); ?>
+                      <?php include('../../php/class-discount.php'); ?>
                       <form 
                         id="discount_form"
                         name="discount_form"
                         method="post" 
-                        action="<?php echo "../myaccount/personal_info.php"; ?>">         
+                        action="<?php echo "../../myaccount/personal_info.php"; ?>">         
                         <input 
                           type="hidden"
                           id="change"
@@ -614,11 +614,11 @@
                   </div>
                 </div>
               </div>                             
-              <img src="../images/loading.gif" class="spinner" alt="loading..." style="display: none;">                  
+              <img src="../../images/loading.gif" class="spinner" alt="loading..." style="display: none;">                  
               <div class="apDivOuter">
                 <div class="apDivInner">
                   <div class="apDivInnerMost">
-                  <?php include('../php/class-captcha.php'); ?>
+                  <?php include('../../php/class-captcha.php'); ?>
                     <script type="text/javascript">
                       $("#fuck").click(function() {
                           var discountCode = $( "#discount_code" ).val();
@@ -627,7 +627,7 @@
                           $.ajax(
                           {
                               type:"POST",
-                              url:"../alpha/php-ajax-output.php",
+                              url:"../../alpha/php-ajax-output.php",
                               data:{ discount_code:discountCode, code:code, hidden:hidden}
                               }).done(function( html ) 
                               {
