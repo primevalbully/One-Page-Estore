@@ -9,8 +9,11 @@
   <head>
     <meta charset="utf-8">
     <!-- saved from url=(0014)about:internet -->
-    <title>Total eCommerce Web Application</title>  
+    <title>One Page Ecommerce</title>  
     <meta name="author" lang="en" content="Alexander W Clark">
+    <meta name="description" content="This is an entire Ecommerce website condensed into only one page through highly dynamic and interactive web programming.">
+    <link href="https://plus.google.com/109520826444336591679" rel="publisher" />
+    <link rel="shortcut icon" href="https://myeccentrictees.com/shades.ico">
     <meta name="robots" content="FOLLOW,INDEX">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" type="text/css" href="../../alpha/jquery-dev-bundle/themes/base/jquery-ui.css" >
