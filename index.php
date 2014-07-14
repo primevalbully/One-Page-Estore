@@ -425,14 +425,15 @@
               <legend></legend>
               <h4 id="add-discount-header">Add a discount code to your account by entering it below</h4>
               <div id="boxes">
-              <div id="discount-messages" class="window" title="Basic dialog">
+              <div id="discount-messages" title="Basic dialog">
                 <div class="apDivInner">
                   <div class="apDivInnerMost">                         
-                    <div id="messages"></div>
+                    <div id="messages" class="window">              
+                    </div>
                   </div>
                 </div>
-              </div>                             
-              <img src="includes/images/loading.gif" class="spinner" alt="loading..." style="display: none;">                  
+              </div>
+              <img src="includes/images/loading.gif" class="spinner" alt="loading..." style="display: none;">                             
               <div class="apDivOuter">
                 <div class="apDivInner">
                   <div class="apDivInnerMost">
@@ -449,10 +450,34 @@
                               data:{ discount_code:discountCode, code:code, hidden:hidden}
                               }).done(function( html ) 
                               {
-                                  $( "#messages" ).empty();
+                                  $( "#discount-messages" ).empty();
                                   $( '#siimage' ).attr('src', 'includes/php/securimage_show.php?sid=' + Math.random());
                                   $( '#code' ).val( '' );
-                                  $( "#messages" ).append(html);
+                                 // $( "#messages" ).append(html);
+                                  $( "#discount-messages" ).append(html);
+								  $( "#discount-messages" ).dialog({
+									  draggable: false,
+									  modal: true,
+									  height: "auto",
+									  width: "auto",
+									  resizable: false,
+									  autoOpen: true,
+									  //appendTo: "#messages",
+									  buttons: {
+										  Ok: function() {
+											  $( this ).dialog( "close" );
+										  }
+									  },
+									  show: {
+										  effect: "blind",
+										  duration: 1000
+									  },
+									  hide: {
+										  effect: "explode",
+										  duration: 1000
+									  }
+								  });
+
 								  // Example call to reload from original file
 								  $(function() {
 									  var oTable = $('#example').dataTable();

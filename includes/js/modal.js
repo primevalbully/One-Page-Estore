@@ -142,25 +142,11 @@ $(document).ready(function() {
 			$('fieldset').load();
 		});
 	  });
-	  $( "#discount-messages" ).dialog({
-		  draggable: false,
-		  modal: false,
-		  height: "auto",
-		  resizable: false,
-		  autoOpen: false,
-		  appendTo: "#messages",
-		  show: {
-			  effect: "blind",
-			  duration: 1000
-		  },
-		  hide: {
-			  effect: "explode",
-			  duration: 1000
-		  }
-	  });
+	  
 	  $( "#fuck" ).click(function() {
 		  $( "#discount-messages" ).dialog( "open" );
 	  });
+	 
 	  $(function() {
 		$(".editable_select").editable("../php/class-update-user-account.php", {
 			indicator : '<img src="../images/loading.gif">',

@@ -34,7 +34,7 @@
 }
 
 #dialog1 .d-header {
-  background:url(../../css/images/login-header.png) no-repeat 0 0 transparent; 
+  background:url(../images/login-header.png) no-repeat 0 0 transparent; 
   width:375px; 
   height:150px;
 }
@@ -53,7 +53,7 @@
 
 #dialog1 .d-blank {
   float:left;
-  background:url(../../css/images/login-blank.png) no-repeat 0 0 transparent; 
+  background:url(../images/login-blank.png) no-repeat 0 0 transparent; 
   width:267px; 
   height:53px;
 }
@@ -65,7 +65,7 @@
 }
 
 #boxes #dialog2 {
-  background:url(../../css/images/notice.png) no-repeat 0 0 transparent; 
+  background:url(../images/notice.png) no-repeat 0 0 transparent; 
   width:326px; 
   height:229px;
   padding:50px 0 20px 25px;
