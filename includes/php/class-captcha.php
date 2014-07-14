@@ -56,7 +56,7 @@
                       <a 
                         tabindex="-1" 
                         href="#" 
-                        title="Refresh Image" 
+                        title="Refresh Captcha Image" 
                         onClick="document.getElementById('siimage').src = 'includes/php/securimage_show.php?sid=' + Math.random(); return false">
                         <img 
                           id="refreshIcon"
