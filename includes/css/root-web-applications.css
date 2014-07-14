@@ -845,17 +845,23 @@ table tbody th
 }
 #loginSpinner
 {
-    width:100px;
-    margin:auto;
-    display:block;
-    position:relative;
+	width: 100px;
+	margin: auto;
+	display: block;
 }
 .spinner
 {
-	width:100px;
-	margin:auto;
-	display:block;
-    position:absolute;
+	width: 100px;
+	margin: auto;
+	display: block;
+	position: absolute;
+	display:none;
+}
+#spinner-new-discount
+{
+    width:100px;
+    margin:auto;
+    display:block;
 }
 .NO {
     color:#0000aa;

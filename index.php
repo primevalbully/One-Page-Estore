@@ -46,7 +46,7 @@
             <legend></legend>
             <div id="cont" class="group">
               <span id="loginSpinner">
-                <img src="includes/images/loading.gif" class="spinner" alt="loading..." style="display: none;">
+                <img src="includes/images/loading.gif" class="spinner" alt="loading..." style="/*display: none;*/">
               </span>
               <div id="logindiv">
                 <form 
@@ -433,7 +433,9 @@
                   </div>
                 </div>
               </div>
-              <img src="includes/images/loading.gif" class="spinner" alt="loading..." style="display: none;">                             
+              <span id="spinner-new-discount">
+                <img src="includes/images/loading.gif" class="spinner" alt="loading..." style="/*display: none;*/">
+              </span>                             
               <div class="apDivOuter">
                 <div class="apDivInner">
                   <div class="apDivInnerMost">

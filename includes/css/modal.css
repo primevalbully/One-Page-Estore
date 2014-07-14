@@ -5,11 +5,14 @@
   top:0;
   z-index:9000;
   background-color:#000;
-  display:block;
+  display:none;
   position:absolute;
   width:900px;
 }
-  
+
+#discount-messages {
+	background-color:#000;
+}
 #boxes .window {
   position:fixed;
   left:0;
