@@ -509,22 +509,8 @@
                 </div><!--End of apDivInner Div-->                         
               </div><!--End of apDivOuter Div-->             
               <?php do { ?>
-              <?php } while ($row_rs_discounts = mysql_fetch_assoc($rs_discounts)); ?>            
-              <!--<ul>
-                <li><a href="#dialog" name="modal">Simple Window Modal</a></li>
-                <li><a href="#dialog2" name="modal">Sticky Note</a></li>
-              </ul>                  
-              <div id="boxes">                  
-                <div id="dialog" class="window">
-                  Simple Modal Window
-                  <a href="#"class="close"/>Close it</a>
-                  <input type="button" value="Close it" class="close three-d-button">
-                </div>                                  
-                <div id="dialog2" class="window"><!-- Start of Sticky Note 
-                  So, with this Simple Jquery Modal Window, it can be in any shapes you want! Simple and Easy to modify
-                  <input type="button" value="Close it" class="close three-d-button">
-                </div><!-- End of Sticky Note -->                                      
-                <div id="mask"></div><!-- Mask to cover the whole screen -->
+              <?php } while ($row_rs_discounts = mysql_fetch_assoc($rs_discounts)); ?>                                                
+              <div id="mask"></div><!-- Mask to cover the whole screen -->
               </div>
             </fieldset>
           </div>        
