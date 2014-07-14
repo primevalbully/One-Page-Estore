@@ -4,7 +4,7 @@
                     id="discount_form" 
                     name="discount_form" 
                     method="post" 
-                    action="test_script6.php">
+                    action="">
                     <div class="field">
                       <input 
                         type="text" 
