@@ -13,6 +13,13 @@ $colname_rs_discounts_db = "-1";
 if (isset($_POST['discount_code'])) {
   $colname_rs_discounts_db = $_POST['discount_code'];
 }
+
+//This query searches the discounts database for a match.
+
+// ******** NOTE ******** 
+//An error is thrown for an undefined index for the 
+//several variables subseqently used if the query does not 
+//return a matching discount 
 mysql_select_db($database_metcdb, $metcdb);
 $query_rs_discounts_db = sprintf("SELECT * FROM discounts_database WHERE discount_code = %s", GetSQLValueString($colname_rs_discounts_db, "text"));
 $rs_discounts_db = mysql_query($query_rs_discounts_db, $metcdb) or die(mysql_error());
@@ -37,6 +44,7 @@ $_SESSION['combinable'] = $row_rs_discounts_db['combinable'];
 $_SESSION['life_of_discount']= $row_rs_discounts_db['life_of_discount'];
 $_SESSION['type'] = $row_rs_discounts_db['type'];
 $_SESSION['amount'] = $row_rs_discounts_db['amount'];
+  
 ?>
 <?php
 $_SESSION['E_not_logged_in'] = NULL;
@@ -185,4 +193,5 @@ mysql_free_result($Recordset1);
   echo $_POST['code'] . "<br>";
   echo $_POST['hidden'] . "<br>";
   echo $_SESSION['MM_UserGroup'] . "<br>";
+  sleep(2)
 ?>
