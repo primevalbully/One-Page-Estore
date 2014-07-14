@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="includes/css/demo_page.css">
     <link rel="stylesheet" type="text/css" href="includes/css/demo_table.css">
     <link rel="stylesheet" type="text/css" href="includes/css/demo_table_jui.css">
-    <link rel="stylesheet" type="text/css" href="includes/css/css/modal.css">
+    <link rel="stylesheet" type="text/css" href="includes/css/modal.css">
     <script type="text/javascript" src="includes/js/sorttable.js"></script>
     <script type="text/javascript" src="includes/js/jquery-1.9.1-min.js"></script>        
     <script type="text/javascript" src="includes/js/jquery-ui-1.10.1.custom.min.js"></script>
