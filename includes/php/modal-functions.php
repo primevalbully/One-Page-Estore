@@ -58,9 +58,9 @@
 <?php 
   if((isset($_SESSION['MM_UserGroup']) && $_SESSION['MM_UserGroup'] !== '')) {
 	$buttonValue = "Sign Out";
-	$url = "includes/php/logout.php";	
+	$url = "logout.php";	
   } else {
 	$buttonValue = "Sign In";
-	$url = "includes/php/test.php";
+	$url = "test.php";
   }; 
 ?>

@@ -11,7 +11,7 @@
     <meta name="author" lang="en" content="Alexander W Clark">
     <meta name="description" content="This is an entire Ecommerce website condensed into only one page through highly dynamic and interactive web programming.">
     <link href="https://plus.google.com/109520826444336591679" rel="publisher" />
-    <link rel="shortcut icon" href="https://myeccentrictees.com/shades.ico">
+    <link rel="shortcut icon" href="https://myeccentrictees.com/shades.ico" type="image/x-icon">
     <link rel="canonical" href="http://www.one-page-estore.com/">
     <meta name="robots" content="FOLLOW,INDEX">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -83,117 +83,7 @@
                 </form>
               </div><!--End of logindiv Div-->
             </div><!--End of cont Div-->
-            <script type="text/javascript">
-              $( "#submitButton" ).click(function() {
-                  var userName = $( "#username" ).val();
-                  var passWord = $( "#password" ).val();
-                  var customerID = "<?php echo $_SESSION['MM_UserGroup']; ?>";
-				  var buttonValue = $( "#submitButton" ).attr( "value" );
-				  if(buttonValue == "Sign Out") {
-						   var oTable = $('#example').dataTable();
-						   oTable.fnClearTable();
-						   $( "#logged-in-user-details" ).html( "Signing Out..." ).fadeIn( 400 ).effect( "highlight", "easeOutBounce", 900 ).fadeOut( 400 );
-						   $( ".username" ).html( '' );
-						   $( "#email" ).html( '' );						   
-						   $( "#member_since" ).html( '' );
-						   $( "#customerid" ).html( '' );
-						   $( ".ship_address" ).html( '' );
-						   $( ".ship_city" ).html( '' );
-						   $( ".ship_state" ).html( '' );
-						   $( ".ship_zip" ).html( '' );
-						   $( "#submitButton" ).attr( 'value', "Sign In" );
-						   $.post("includes/php/logout.php");
-						   $( "#logged-in-user-details-2" ).fadeOut( 0 ).html( "You are Logged out" ).delay( 1000 ).fadeIn( 2000 );
- 				  } else {					  
-                  $.ajax({
-                      type:"POST",
-                      url:"includes/php/class-login.php",
-					  
-					  //the data object contains the username and password and is 
-					  //used to submit the users credentials to the class-login.php script
-                      data:{username:userName, password:passWord}
-                      }).done(function( html ) {
-                          $( "#disc_table" ).append(html);
-                          $.post("includes/php/class-raw-user-discounts.php", function(aaData){
-							  $( ".id2" ).html( aaData.id );
-							  $( ".discount_code2" ).html( aaData.discount_code );
-							  $( ".type2" ).html( aaData.type );
-							  $( ".amount2" ).html( aaData.amount );
-							  $( ".applied2" ).html( aaData.applied );
-							  $( ".date_obtained2" ).html( aaData.date_obtained );
-							  $( ".expiration_date2" ).html( aaData.expiration_date );
-							  $( ".multiple_use2" ).html( aaData.discount_code );
-							  $( ".combinable2" ).html( aaData.combinable );
-                         }, "json");
-                          $( "#promptDiv" ).append(html);
-                          $.post("includes/php/class-account-details.php", function(data){
-							  $( "#logged-in-user-details" ).html( "Username: " + data.username + "<br>Customer ID: " + data.customerid );
-							  $( "#submitButton" ).attr( 'value', "Sign Out" );
-							  $( ".username" ).html( data.username );
-							  $( "#email" ).html( data.email );
-							  $( "#member_since" ).html( data.member_since );
-							  $( "#customerid" ).html( data.customerid );
-							  $( ".ship_address1" ).html( data.ship_address1 );
-							  $( ".ship_address2" ).html( data.ship_address2 );
-							  $( ".ship_city" ).html( data.ship_city );
-							  $( ".ship_state" ).html( data.ship_state );
-							  $( ".ship_zip" ).html( data.ship_zip );
-							  $( ".bill_address1" ).html( data.bill_address1 );
-							  $( ".bill_address2" ).html( data.bill_address2 );
-							  $( ".bill_city" ).html( data.bill_city );
-							  $( ".bill_state" ).html( data.bill_state );
-							  $( ".bill_zip" ).html( data.bill_zip );
-							  $( ".bill_phone" ).html( data.bill_phone );
-                          }, "json");
-						  // $( "#disc_table" ).append( html );
-						   //$.post( "includes/php/class-account-details.php", function( data ) {
-							   //$( "						  						  
-						  $( "#logged-in-user-details" ).effect( "highlight", "easeOutBounce", 900 );
-
-                          var active = $( "#application" ).accordion( "option", "active" );
-                          // setter - set the 2nd accordion tab to open
-                          $( "#application" ).accordion( "option", "active", 1 );
-
-                          var oTable = $('#example').dataTable();
-						   oTable.fnDestroy();
- 						  						                          
-						  var oTable = $('#example').dataTable({
-							  "aoColumns": [
-                                { "sClass": "id"},//discounts_customer database id of user discount
-								{ "bVisible": false, "aTargets": [ 0 ] },//Hides the Column for the Customer ID					  
-								{ "bVisible": false, "aTargets": [ 0 ] },//Hides the Column for the Name of the discount
-								null,//discount code
-								{ "bVisible": false, "aTargets": [ 0 ] },//Hides the Column for the Type of discount
-								null,//amount of discount
-								{ "sClass": "editable_textarea" },//status of the discount(i.e. applied or not applied)
-								{ "bVisible": false, "aTargets": [ 0 ] },//Hides the Column for the Date the discount was obtained
-								null,//Expiration date of the discount
-								null,//availability for more than one use
-								null,//availability to be combined with other discounts								
-								{ "bVisible": false, "aTargets": [ 0 ] }//Hides the Column for the Life of the Discount
-							  ],
-							  "bProcessing": true,
-							  "bJQueryUI": true,
-							  "bLengthChange": false, //disables user ability to change the number of discounts displayed
-							  "bFilter": false,// displays Search box, setting false removes filter ability all together
-							  "sAjaxSource": "includes/php/class-user-discounts.php"
-                          }).makeEditable( 'includes/php/editable_ajax.php', {
-                              "callback": function( sValue, y ) {
-                                  var aPos = oTable.fnGetPosition( this );
-                                  oTable.fnUpdate( sValue, aPos[0], aPos[1] );
-                              },
-                              "submitdata": function ( value, settings ) {
-                                  return {
-                                      "row_id": this.parentNode.getAttribute('id'),
-                                      "column": oTable.fnGetPosition( this )[2]
-                                  };
-                              },
-                              "height": "24px"
-                          });
-                      });
-				  };
-              });				  	
-          </script>
+            <script type="text/javascript" src="includes/js/login-JS.js"></script>
           </fieldset>
           <h3 class="accordion-header">
             <span class="headerLink">
@@ -439,72 +329,8 @@
               <div class="apDivOuter">
                 <div class="apDivInner">
                   <div class="apDivInnerMost">
-                  <?php include('includes/php/class-captcha.php'); ?>
-                    <script type="text/javascript">
-                      $("#fuck").click(function() {
-                          var discountCode = $( "#discount_code" ).val();
-                          var code = $( "#code" ).val();
-                          var hidden = $( "#hidden" ).val();
-                          $.ajax(
-                          {
-                              type:"POST",
-                              url:"includes/php/php-ajax-output.php",
-                              data:{ discount_code:discountCode, code:code, hidden:hidden}
-                              }).done(function( html ) 
-                              {
-                                  $( "#discount-messages" ).empty();
-                                  $( '#siimage' ).attr('src', 'includes/php/securimage_show.php?sid=' + Math.random());
-                                  $( '#code' ).val( '' );
-                                 // $( "#messages" ).append(html);
-                                  $( "#discount-messages" ).append(html);
-								  $( "#discount-messages" ).dialog({
-									  draggable: false,
-									  modal: true,
-									  height: "auto",
-									  width: "auto",
-									  resizable: false,
-									  autoOpen: true,
-									  //appendTo: "#messages",
-									  buttons: {
-										  Ok: function() {
-											  $( this ).dialog( "close" );
-										  }
-									  },
-									  show: {
-										  effect: "blind",
-										  duration: 1000
-									  },
-									  hide: {
-										  effect: "explode",
-										  duration: 1000
-									  }
-								  });
-
-								  // Example call to reload from original file
-								  $(function() {
-									  var oTable = $('#example').dataTable();
-									   
-									  // Reload discount table after user attempts to register a new discount
-									  var oTableReloadAjax =  oTable.fnReloadAjax();
-									  console.log( oTableReloadAjax );
-									  
-									  //After the discount data table is reloaded this code acivates the 
-									  //accordion and automatically opens the user discounts tab.
-									  // getter
-									  
-									  var active = $( "#application" ).accordion( "option", "active" );
-									      // setter - set the 5th accordion tab to open
-										  $( "#application" ).accordion( "option", "active", 4 );
-									  /*if(isset($_SESSION['M_added']) && ($_SESSION['M_added'] !== '')) {						   
-									  if(true) {
-										  // setter - set the 5th accordion tab to open
-										  $( "#application" ).accordion( "option", "active", 4 );
-									  } else {
-										  $( "#application" ).accordion( "option", "active", 3 );*/
-									  });
-                              });
-                      });
-                    </script>
+                    <?php include('includes/php/class-captcha.php'); ?>
+                    <script type="text/javascript" src="includes/js/add-new-dscount-JS.js"></script>
                   </div><!--End of apDivInnerMost Div-->
                 </div><!--End of apDivInner Div-->                         
               </div><!--End of apDivOuter Div-->             
