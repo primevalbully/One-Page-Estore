@@ -36,75 +36,36 @@
 		$this->link_name = $link_name;
 	}
 	
-	// Class accordian_Module's operators
-	public function display_Accordion_Button()
+	public function display_Accordion()
 	{
-		// Accordion Button Header
-		?> 
-        <h3 class="accordion-header">
-		  <span class="headerLink">
-		    <a 
-              class="link" 
-              id="<?php echo $this->link_id; ?>"
-              href="<?php echo $this->link_href; ?>"><?php echo $this->link_name; ?></a>
-          </span>
-		</h3>
-        <fieldset>
-          <legend></legend>
-            <div id="cont" class="group">
-              <span id="loginSpinner">
-                <img src="../images/loading.gif" class="spinner" alt="loading..." style="/*display: none;*/">
-              </span>
-              <div id="logindiv">
-                <form 
-                  id="loginForm" 
-                  name="loginForm" 
-                  method="POST" 
-                  action="">
-                  <div id="promptDiv" class="basePrompt"></div>
-                  <div class="field">
-                    <input  
-                      id="username" 
-                      name="username" 
-                      type="text" 
-                      value="lordvoz"
-                      autocomplete="on" 
-                      placeholder="Username" 
-                      title="Username">
-                  </div>
-                  <div class="field">
-                    <input 
-                      id="password"
-                      name="password"
-                      type="password" 
-                      value="password12"
-                      autocomplete="on"
-                      placeholder="Password"
-                      title="Password">
-                  </div>
-				  <?php 
-				    if((isset($_SESSION['MM_UserGroup']) && $_SESSION['MM_UserGroup'] !== '')) 
-					{
-						$buttonValue = "Sign Out";
-						} else { $buttonValue = "Sign In";
-						}; 
-				  ?>
-                  <input 
-                    class="three-d-button"
-                    type="button"
-                    id="submitButton"
-                    value="<?php echo $buttonValue; ?>">
-                </form>
-              </div><!--End of logindiv Div-->
-            </div><!--End of cont Div-->
-            <script type="text/javascript" src="../js/login2-JS.js"></script>
-          </fieldset>
-		<?php return;
+		$this->display_Accordion_Button();
+		$this->display_Accordion_Content();
 	}
-	
-  }
-  ?>
+	    // Class accordian_Module's operators
+		public function display_Accordion_Button()
+		{
+			// Accordion Button Header
+			?> 
+			<h3 class="accordion-header">
+			  <span class="headerLink">
+				<a 
+				  class="link" 
+				  id="<?php echo $this->link_id; ?>"
+				  href="<?php echo $this->link_href; ?>"><?php echo $this->link_name; ?></a>
+			  </span>
+			</h3>
+            <?php  }
+			public function display_Accordion_Content()
+			{
+				// This will be modified by the child class
+				$base = "<fieldset>
+			      <legend></legend>"; 
+				return $base;
+		
+		}	
+	  }
+?>
  <?php 
-$login_Module = new accordion_Module( "sign-in", "#sign-in", "Sign-in" );
-echo $login_Module->display_Accordion_Button();
+//$login_Module = new accordion_Module( "sign-in", "#sign-in", "Sign-in" );
+//echo $login_Module->display_Accordion();
 ?>
