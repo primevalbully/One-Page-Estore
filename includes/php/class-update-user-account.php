@@ -1,5 +1,5 @@
 <?php 
-require_once('../Connections/metcdb.php'); 
+require_once('metcdb.php'); 
 include('cs5_function.php');
 
  //initialize the session
