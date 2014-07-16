@@ -148,8 +148,8 @@ $(document).ready(function() {
 	  });
 	 
 	  $(function() {
-		$(".editable_select").editable("../php/class-update-user-account.php", {
-			indicator : '<img src="../images/loading.gif">',
+		$(".editable_select").editable("includes/php/class-update-user-account.php", {
+			indicator : '<img src="includes/images/loading.gif">',
 			data   : "{'Lorem ipsum':'Lorem ipsum','Ipsum dolor':'Ipsum dolor','Dolor sit':'Dolor sit'}",
 			type   : "select",
 			submit : "OK",
@@ -158,15 +158,15 @@ $(document).ready(function() {
 				return {id : 2};
 			}
 		});
-		$(".editable_select_json").editable("../php/class-update-user-account.php", {
-			indicator : '<img src="../images/loading.gif">',
+		$(".editable_select_json").editable("includes/php/class-update-user-account.php", {
+			indicator : '<img src="includes/images/loading.gif">',
 			loadurl : "http://www.appelsiini.net/projects/jeditable/php/json.php",
 			type   : "select",
 			submit : "OK",
 			style  : "inherit"
 		});
-		$(".editable_textarea").editable("../php/class-update-user-account.php", {
-			indicator : "<img src='../images/loading.gif'>",
+		$(".editable_textarea").editable("includes/php/class-update-user-account.php", {
+			indicator : "<img src='includes/images/loading.gif'>",
 			type   : 'text',
 			//id : 'elementid',
 			//name : 'newvalue',
@@ -176,8 +176,8 @@ $(document).ready(function() {
 			cancel : 'cancel',
 			cssclass : "field"
 		});
-		$(".editable_textile").editable("../php/class-update-user-account.php?renderer=textile", {
-			indicator : "<img src='../images/loading.gif'>",
+		$(".editable_textile").editable("includes/php/class-update-user-account.php?renderer=textile", {
+			indicator : "<img src='includes/images/loading.gif'>",
 			loadurl   : "http://www.appelsiini.net/projects/jeditable/php/load.php",
 			type      : "textarea",
 			submit    : "OK",
@@ -186,25 +186,25 @@ $(document).ready(function() {
 		});
 
 		$(".click").editable("http://www.appelsiini.net/projects/jeditable/php/echo.php", {
-			indicator : "<img src='../images/loading.gif'>",
+			indicator : "<img src='includes/images/loading.gif'>",
 			tooltip   : "Click to edit...",
 			style  : "inherit"
 		});
 		$(".dblclick").editable("http://www.appelsiini.net/projects/jeditable/php/echo.php", {
-			indicator : "<img src='../images/loading.gif'>",
+			indicator : "<img src='includes/images/loading.gif'>",
 			tooltip   : "Doubleclick to edit...",
 			event     : "dblclick",
 			style  : "inherit"
 		});
 		$(".mouseover").editable("http://www.appelsiini.net/projects/jeditable/php/echo.php", {
-			indicator : "<img src='../images/loading.gif'>",
+			indicator : "<img src='includes/images/loading.gif'>",
 			tooltip   : "Move mouseover to edit...",
 			event     : "mouseover",
 			style  : "inherit"
 		});
 		/* Should not cause error. */
 		$("#nosuch").editable("http://www.appelsiini.net/projects/jeditable/php/echo.php", {
-			indicator : "<img src='../images/loading.gif'>",
+			indicator : "<img src='includes/images/loading.gif'>",
 			type   : 'textarea',
 			submit : 'OK'
 		});
