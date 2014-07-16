@@ -45,11 +45,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 		    } else {
 		   echo $msg;
 		}
-		
-		// echo 'Oops...Something went wrong, please try resubmiting the login form.';
-		// echo $_POST['username'] . "<br>";
-		// echo $_POST['password'] . "<br>";
-}
+    }
 sleep(1);
 
 //#check if the mail is valid
