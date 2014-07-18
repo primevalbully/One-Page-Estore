@@ -1,3 +1,4 @@
+<?php  // ?>
 <?php
  //initialize the session
   if (!isset($_SESSION)) {
@@ -54,10 +55,13 @@
 		  echo "<br>";
 		echo $_SESSION['MM_UserGroup'] = $row[0];
        // echo $_SESSION['MM_UserGroup'] = $row['customerid'];		
+
 		  //print_r( $result->password );
 	  }
   }
   $userLogin = new user_Login( "lordvoz", "password12" );
   $userLogin->user_Query();
-  sleep(1);
+		  echo "<br>";
+		  echo "<br>";
+  echo $_SESSION['MM_UserGroup'];
 ?>
