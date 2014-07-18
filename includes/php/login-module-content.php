@@ -1,4 +1,10 @@
-				<div id="cont" class="group">
+<?php  
+				//initialize the session
+  if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+<div id="cont" class="group">
 				  <span id="loginSpinner">
 					<img src="../images/loading.gif" class="spinner" alt="loading..." style="/*display: none;*/">
 				  </span>
@@ -29,10 +35,11 @@
 						  title="Password">
 					  </div>
 					  <?php 
+					  
 						if((isset($_SESSION['MM_UserGroup']) && $_SESSION['MM_UserGroup'] !== '')) 
 						{
-							$buttonValue = "Sign Out";
-							} else { $buttonValue = "Sign In";
+							$buttonValue = $_SESSION['buttonValue'] = "Sign Out";
+							} else { $buttonValue = $_SESSION['buttonValue'] = "Sign In";
 							}; 
 					  ?>
 					  <input 
