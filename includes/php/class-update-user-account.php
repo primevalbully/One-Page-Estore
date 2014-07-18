@@ -1,24 +1,37 @@
 <?php 
-require_once('metcdb.php'); 
-include('cs5_function.php');
-
  //initialize the session
   if (!isset($_SESSION)) {
     session_start();
 }
-$elementid = trim($_POST['id']);
-$newValue = trim($_POST['value']);
-$customerid = $_SESSION['MM_UserGroup'];
-  $updateSQL = "UPDATE uspass SET $elementid='$newValue' WHERE customerid='$customerid'";
 
-  mysql_select_db($database_metcdb, $metcdb);
-  $Result1 = mysql_query($updateSQL, $metcdb) or die(mysql_error());
-  
+//Make a connection to the database.
+$db = new mysqli("localhost", "ChinChinMonster", "one4PBchaos!", "metcdatabase");
+if($db->connect_errno)
+{
+	echo "done fucked up";
+	exit;
+}; 
 
-mysql_select_db($database_metcdb, $metcdb);
-$uspass = "SELECT * FROM uspass WHERE customerid='$customerid'";
-$uspass_query = mysql_query($uspass, $metcdb) or die(mysql_error()); 
-$row_uspass = mysql_fetch_assoc($uspass_query);
-echo $row_uspass[$elementid];
+//The following $variables are taken from the user input fields
+//The $elementid represents a single input value that the user
+   //is attempting to change and it is easily captured by setting 
+   //$_POST['id'] based on the id which should have been set for 
+   //target HTML tag.
+//The $newValue variable is simply the captured data entered by
+   //the suer.
+$elementid = $db->real_escape_string(trim($_POST['id']));
+$newValue = $db->real_escape_string(trim($_POST['value']));
+$customerid = $db->real_escape_string($_SESSION['MM_UserGroup']);
 
+//This query updates the user's information in the database 
+$query = "UPDATE uspass SET $elementid = \"$newValue\" WHERE customerid = $customerid";
+$result = $db->query($query);
+
+//Whereas this query retrieves the just updated details which 
+   //is then sent back to the browser where the user can instantly
+   //see the updated information.
+$query2 = "SELECT * FROM uspass WHERE customerid = $customerid";
+$result2 = $db->query($query2);
+$row = $result2->fetch_object();
+echo $row->$elementid; 
 ?>
