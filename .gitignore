@@ -6,3 +6,8 @@ includes/js/_notes/dwsync.xml
 content/_notes/dwsync.xml
 content/modules/_notes/dwsync.xml
 test/
+_notes/
+.settings/
+content/
+images/
+index2.php
