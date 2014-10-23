@@ -1,9 +1,16 @@
 <?php 
-require_once('metcdb.php'); ?>
-<?php include('cs5_function.php'); ?>
+ //initialize the session
+  if (!isset($_SESSION)) {
+    session_start();
+}
 
-<!--<script src="http://myeccentrictees.zymichost.com/js/google.js" type="text/javascript"></script>  -->
-<?php
+$mysqli = new mysqli( "localhost", "ChinChinMonster", "one4PBchaos!", "metcdatabase" );
+if($mysqli->connect_errno)
+{
+	echo "An error has occured, please try again.";
+	exit;
+}; 
+
   //initialize the session
   if (!isset($_SESSION)) {
     session_start();
@@ -30,13 +37,6 @@ require_once('metcdb.php'); ?>
   unset($_SESSION['email']);
   $_SESSION = array();
   session_destroy();
-
-  $insertGoTo = "login.php";
-  if (isset($_SERVER['QUERY_STRING'])) {
-    $insertGoTo .= (strpos($insertGoTo, '?')) ? "&" : "?";
-    $insertGoTo .= $_SERVER['QUERY_STRING'];
-  }
-  header(sprintf("Location: %s", $insertGoTo)); 
   sleep(1);
 ?>
   

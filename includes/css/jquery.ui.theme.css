@@ -38,7 +38,7 @@
 
 /* Interaction states
 ----------------------------------*/
-.nav-tabs, #tabs .ui-state-default, .nav-tabs, #tabs .ui-widget-content .nav-tabs, #tabs .ui-state-default, .nav-tabs, #tabs .ui-widget-header .nav-tabs, #tabs .ui-state-default {
+#tabs .ui-state-default, #tabs .ui-widget-content .nav-tabs {
 	font-size: 18px;
 	font-family:cambria;
 	font-weight: bold;
@@ -56,11 +56,12 @@
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 ); /* IE6-8 */
 
 }
-.nav-tabs, #tabs, #application .ui-state-default a, .nav-tabs, #tabs .ui-state-default a:link, .nav-tabs, #tabs .ui-state-default a:visited {
+#tabs, #application .ui-state-default a, #tabs .ui-state-default a:link, #tabs .ui-state-default a:visited {
 	/* [disabled]color: #FF0000; *//*{fcDefault}*/
 	text-decoration: none;
+	list-style-type: square;
 }
-.nav-tabs, #tabs .ui-state-hover, .nav-tabs, #tabs .ui-widget-content .ui-state-hover, .nav-tabs, #tabs .ui-widget-header .ui-state-hover, .nav-tabs, #tabs .ui-state-focus, .nav-tabs, #tabs .ui-widget-content .ui-state-focus, .nav-tabs, #tabs .ui-widget-header .ui-state-focus {
+#tabs .ui-state-hover, #tabs .ui-widget-content .ui-state-hover, #tabs .ui-widget-header .ui-state-hover, #tabs .ui-state-focus, #tabs .ui-widget-content .ui-state-focus, #tabs .ui-widget-header .ui-state-focus {
 	border:1px solid #006699/*{borderColorHover}*/;
 	/* [disabled]background: #dadada|*{bgColorHover}*| url(../../css/images/ui-bg_glass_75_dadada_1x400.png) 50%|*{bgHoverXPos}*| 50%|*{bgHoverYPos}*| repeat-x; *//*{bgHoverRepeat}*/
 	font-weight: bold/*{fwDefault}*/;
@@ -78,9 +79,10 @@ background: -ms-linear-gradient(top, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 
 background: linear-gradient(to bottom, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 57%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 ); /* IE6-8 */
 }
-.nav-tabs, #tabs .ui-state-hover a, .nav-tabs, #tabs .ui-state-hover a:hover {
+#tabs .ui-state-hover a, .nav-tabs, #tabs .ui-state-hover a:hover {
 	color: #212121/*{fcActive}*/;
 	font-size: 18px;
+	list-style-image:url(../images/details_open.png);
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VkNWEwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMlIiBzdG9wLWNvbG9yPSIjZWQ1YTAwIiBzdG9wLW9wYWNpdHk9IjAuMjMiLz4KICAgIDxzdG9wIG9mZnNldD0iNiUiIHN0b3AtY29sb3I9IiNlZDVlMDciIHN0b3Atb3BhY2l0eT0iMC40NiIvPgogICAgPHN0b3Agb2Zmc2V0PSIyNiUiIHN0b3AtY29sb3I9IiNlYzdjMzkiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNlYWEwNzUiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI3NCUiIHN0b3AtY29sb3I9IiNlYzcxMjciIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI4NiUiIHN0b3AtY29sb3I9IiNlZDVhMDAiIHN0b3Atb3BhY2l0eT0iMC43MSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NiUiIHN0b3AtY29sb3I9IiNlZDVhMDAiIHN0b3Atb3BhY2l0eT0iMC40NiIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZWQ1YTAwIiBzdG9wLW9wYWNpdHk9IjAiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
 	background: -moz-linear-gradient(top,  rgba(237,90,0,0) 0%, rgba(237,90,0,0.23) 3%, rgba(237,94,7,0.46) 6%, rgba(236,124,57,1) 26%, rgba(234,160,117,1) 50%, rgba(236,113,39,1) 74%, rgba(237,90,0,0.71) 86%, rgba(237,90,0,0.46) 96%, rgba(237,90,0,0) 100%); /* FF3.6+ */
@@ -135,15 +137,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ed5a00', e
 {
     width: 16px;
     height: 16px;
-    background-image: url(../../css/images/ui-icons_222222_256x240.png)/*{iconsContent}*/;
+    background-image: url(../images/ui-icons_222222_256x240.png)/*{iconsContent}*/;
 }
-.nav-tabs, #tabs .ui-widget-content .ui-icon {background-image: url(../../css/images/ui-icons_222222_256x240.png)/*{iconsContent}*/; }
-.nav-tabs, #tabs .ui-widget-header .ui-icon {background-image: url(../../css/images/ui-icons_222222_256x240.png)/*{iconsHeader}*/; }
-.nav-tabs, #tabs .ui-state-default .ui-icon { background-image: url(../../css/images/ui-icons_888888_256x240.png)/*{iconsDefault}*/; }
-.nav-tabs, #tabs .ui-state-hover .ui-icon, .nav-tabs, #tabs .ui-state-focus .ui-icon {background-image: url(../../css/images/ui-icons_454545_256x240.png)/*{iconsHover}*/; }
-.nav-tabs, #tabs .ui-state-active .ui-icon {background-image: url(../../css/images/ui-icons_454545_256x240.png)/*{iconsActive}*/; }
-.nav-tabs, #tabs .ui-state-highlight .ui-icon {background-image: url(../../css/images/ui-icons_2e83ff_256x240.png)/*{iconsHighlight}*/; }
-.nav-tabs, #tabs .ui-state-error .ui-icon, .nav-tabs, #tabs .ui-state-error-text .ui-icon {background-image: url(../../css/images/ui-icons_cd0a0a_256x240.png)/*{iconsError}*/; }
+.nav-tabs, #tabs .ui-widget-content .ui-icon {background-image: url(../images/ui-icons_222222_256x240.png)/*{iconsContent}*/; }
+.nav-tabs, #tabs .ui-widget-header .ui-icon {background-image: url(../images/ui-icons_222222_256x240.png)/*{iconsHeader}*/; }
+.nav-tabs, #tabs .ui-state-default .ui-icon { background-image: url(../images/ui-icons_888888_256x240.png)/*{iconsDefault}*/; }
+.nav-tabs, #tabs .ui-state-hover .ui-icon, .nav-tabs, #tabs .ui-state-focus .ui-icon {background-image: url(../images/ui-icons_454545_256x240.png)/*{iconsHover}*/; }
+.nav-tabs, #tabs .ui-state-active .ui-icon {background-image: url(../images/ui-icons_454545_256x240.png)/*{iconsActive}*/; }
+.nav-tabs, #tabs .ui-state-highlight .ui-icon {background-image: url(../images/ui-icons_2e83ff_256x240.png)/*{iconsHighlight}*/; }
+.nav-tabs, #tabs .ui-state-error .ui-icon, .nav-tabs, #tabs .ui-state-error-text .ui-icon {background-image: url(../images/ui-icons_cd0a0a_256x240.png)/*{iconsError}*/; }
 
 /* positioning */
 .nav-tabs, #tabs .ui-icon-carat-1-n { background-position: 0 0; }
