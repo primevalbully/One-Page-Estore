@@ -36,7 +36,7 @@ $(function () {
 			at: "left top",
 			using: function( position, feedback ) {
 			  $( this ).css( position );
-			  $( "<div>" )
+			  $( '<div>' )
 				.addClass( "arrow" )
 				.addClass( feedback.vertical )
 				.addClass( feedback.horizontal )
@@ -45,12 +45,8 @@ $(function () {
 		}
 	}); 
 });
-
-	function buttFormatter( data ) {
-		return '<form class="field" id="' + data[i][0] + '"><input type="' +  data[i][3] + '" class="three-d-button" value="' +  data[i][2] + '"><input id="id" type="hidden" value="' + data[i][0]+ '"><input id="' +  data[i][0] + '" type="hidden" value="' + changeStatusTo + '"></form>'; 
-	}
 	
-	$(function() {
+$(function() {
 	// Add a default gif loading image each time an ajax request is made.
     // This block of code must be placed at the end of the page head.
 	// set global ajax options:
@@ -70,18 +66,15 @@ $(document).ready( function () {
     var table = $('#example').DataTable({
         processing: true,
         serverSide: true,
-        //orderFixed: {
-         //"pre": [ 5, 'asc' ]
-       // },
         stateSave: true,
         ajax: {
             type: "POST",
             url: "../../test/ids-objects4.php",
 			data: null,
         },
-		// Oddly enough, if the initial ordering of the table
-		// uses the first column "id" it results in a SQL error
-		// and fails to display the table after initially signing in.
+			// Oddly enough, if the initial ordering of the table
+			// uses the first column "id" it results in a SQL error
+			// and fails to display the table after initially signing in.
 		order: [3, 'asc'],
 		orderable: true,
 		columnDefs: [{
@@ -138,10 +131,8 @@ $(document).ready( function () {
 				var num = rowData.amount;
                 $(td).attr({"data-sort": cellData});
 				if( rowData.type == "percent" ) {
-					//console.log( "percent is: " + num + "%");
 					return $(td).html( num + "%" );
 				} else if ( rowData.type == "fixed" ) {
-					//console.log( "fixed is: " +  "$" + num + ".00");
 					return $(td).html( "$" + num + ".00" );
 				}
             }
@@ -155,12 +146,11 @@ $(document).ready( function () {
             title: "Applied",
             targets: 6,
             createdCell: function ( td, cellData, rowData, row, col ) {
-				//console.log("row: " + row + " col: " + col + " rowData: " + rowData.id + " cellData: " + cellData);
                 // This adds a unique id to each table cell in the
-					// "applied" columning allowing for further changes to 
-					// be made as seen below in the code following the DT
-					// table initialization. 
-				$( td ).attr( { id: "applied_" + rowData.id, "data-sort": rowData.applied } );
+				// "applied" columning allowing for further changes to 
+				// be made as seen below in the code following the DT
+				// table initialization. 
+				$( td ).attr( { id: "applied_" + rowData.id, "data-order": rowData.applied } );
 				if (rowData.applied == "YES") {
 					var changeStatusTo = "NO";
 					var button_value = "Use Later";
@@ -196,7 +186,10 @@ $(document).ready( function () {
 			createdCell: function( td, cellData, rowData, row, col ) {
 				$( td ).attr( { "data-sort": cellData } );
 				if( cellData == "YES" ) {
-					$( td ).addClass( "combinable-discount-text" ).attr( "title", "you may combine this with other discounts!" ).html( "YES!" );
+					$( td )
+					    .addClass( "combinable-discount-text" )
+						.attr( "title", "you may combine this with other discounts!" )
+						.html( "YES!" );
 				} else {
 					$( td ).attr( "title", "Sorry, may not be combined with any other discount." );
 				}
@@ -212,7 +205,7 @@ $(document).ready( function () {
         paging: true,
         pageLength: 5,
         lengthChange: true, 
-		// Allows the user to change how many discounts are displayed per page
+		    // Allows the user to change how many discounts are displayed per page
         lengthMenu: [
             [1, 2, 3, 4, 5, -1],
             [1, 2, 3, 4, 5, "All"]
@@ -223,7 +216,6 @@ $(document).ready( function () {
 		    // Setting it to false removes the DT table filter capabilites all together
         ordering: true, // Enables the ordering of column data for sorting purposes.
 		autoWidth: false,
-		//scrollY: "200px",
 		//scrollCollapse: false, // Restricts the table from reducing in height when a limited number of rows are shown.
 		language: {
 			emptyTable: "Please Sign-In as a Guest to Preview this Feature!",
@@ -231,7 +223,7 @@ $(document).ready( function () {
 			processing: "Retrieving Data..."
 		}, // Table summary message used when the table is empty or has no records.
         dom: '<"H"<"drop_menu"l><"field"f>r>t<"F"ip>', // DT table control elements and layout properties; 
-		//including order, appearance, occurances, and tag insertions to control styling options with CSS. 
+		    //including order, appearance, occurances, and tag insertions to control styling options with CSS. 
 			// <"H" === inserts the jQueryUI wrapper for the header.
 			// <"drop_menu"l> === inserts a nested DT page length control element "l" wrapped in a div of class .drop_menu.
 			// <"field"f> === inserts a nested input filtering table element "f" wrapped in a div of class .field.
@@ -246,7 +238,7 @@ $(document).ready( function () {
             var tableinfo = api.page.info();
             total = tableinfo.recordsTotal;
             pageIndex = tableinfo.end;
-            // recordsDisplay - Data set length once the current search criteria has been applied.	
+                // recordsDisplay - Data set length once the current search criteria has been applied.	
             RD_Total = tableinfo.recordsDisplay;
             return pre;
         },
@@ -269,13 +261,6 @@ $(document).ready( function () {
 					// i.e. "hidden" or "submit"		 
 					if(d[i][3] == "submit") {
 						var button_visibility = $( '#' + "button_" + d[i][0] ).css({display: "inline"});
-			          
-						/*** 
-						var formTemplate = '<form class="field" id="' + d[i][0] + '">
-						  <input type="' +  d[i][3] + '" class="three-d-button" value="' +  d[i][2] + '">
-						  <input id="' +  d[i][0] + '" type="hidden" value="' + changeStatusTo + '"></form>'; 
-						***/
-					 //$("#0").append( '<div id="' + i + '">' + formTemplate + '</div>' );
 					 } else {
 						//var button_visibility = $( '#' + "button_" + d[i][0] ).css({display: "none"});
 						// If d[i][3] does not equal "submit" it must therfore equal "hidden"
@@ -292,12 +277,10 @@ $(document).ready( function () {
 			table.column( 9 ).visible( false );
 		}
     }); //Closing tags for initialization of DT settings.
- 
-    // Event listener for user deleted discounts.				
+        // Event listener for user deleted discounts.				
     $('#example tbody').on('click', '.delete', function () {
         var data = table.row( $(this).parents('tr') ).data();
-        var ID = data.id;
-		
+        var ID = data.id;		
         $.ajax({
             type: "post",
             url: "class-delete-user-discount.php",
@@ -307,8 +290,7 @@ $(document).ready( function () {
         })
             table.row($(this).parents('tr')).remove().draw(false);
     });
-
-    // Event listener for user modified discounts.				
+        // Event listener for user modified discounts.				
     $('#example tbody').on('click', '.three-d-button', function () {
         var data = table.row( $(this).parents('tr') ).data();
         var ID = data.id;
@@ -329,72 +311,85 @@ $(document).ready( function () {
         }).done(function (html) {
             $.post("../php/cart-summary.php", function (data) {
                 $(".total-cart-items").html("Items: " + data.total_cart_items);
-                $(".cart-subtotal-price").html("Subtotal: " + data.cart_subtotal_price).fadeIn( 400 ).effect( "highlight", "easeOutBounce", 900 );;
-                $(".total-savings").html("Savings: " + data.total_savings).fadeIn( 400 ).effect( "highlight", "easeOutBounce", 900 );;
+                $(".cart-subtotal-price")
+				    .html("Subtotal: " + data.cart_subtotal_price)
+					.fadeIn( 400 )
+					.effect( "highlight", "easeOutBounce", 900 );
+                $(".total-savings")
+				    .html("Savings: " + data.total_savings)
+					.fadeIn( 400 )
+					.effect( "highlight", "easeOutBounce", 900 );
             }, "json");
             table.draw(false);
         });
     });
-
-    $('#next').on('click', function () {
-        table.page('next').draw(false);
-    });
-    $('#previous').on('click', function () {
-        table.page('previous').draw(false);
-    });
     var data = table.column(2).data().sort();
     var order = table.order();
-    //table.order([0, 'desc']).draw(false);
     var page = table.page();
     var info = table.page.info();
-
-    // Javascript for login module
+        // Javascript for login module
 	$( "#submitButton" ).click(function() {
-		// Show loading gif
-		$(".spinner").show();
 		var userName = $( "#username" ).val();
 		var passWord = $( "#password" ).val();
-		//var customerID = "<?php echo $_SESSION['MM_UserGroup']; ?>";
 		var buttonValue = $( "#submitButton" ).attr( "value" );
 		if(buttonValue == "Sign Out") {
 			$.ajax({
 				type:"POST",
 				url:"../php/logout.php"
 			}).done(function(html) {
-				 $( "#submitButton" ).attr( 'value', "Sign In" );
-				 $( "#logged-in-user-details" ).html( "Signing Out..." ).fadeIn( 400 ).effect( "highlight", "easeOutBounce", 900 ).fadeOut( 400 );
-				 $( ".username" ).html( '' );
-				 $( "#email" ).html( '' );						   
-				 $( "#member_since" ).html( '' );
-				 $( "#customerid" ).html( '' );
-				 $( ".ship_address" ).html( '' );
-				 $( ".ship_city" ).html( '' );
-				 $( ".ship_state" ).html( '' );
-				 $( ".ship_zip" ).html( '' );
-				  $(".total-cart-items").html( "Items: " + '' ).fadeIn( 400 ).effect( "highlight", "easeOutBounce", 700 ).fadeOut( 400 );
-				  $(".cart-subtotal-price").html( "Subtotal: " + '' ).fadeIn( 400 ).effect( "highlight", "easeOutBounce", 900 ).delay( 600 ).fadeOut( 400 );
-				  $(".total-savings").html( "Savings: " + '' ).fadeIn( 400 ).effect( "highlight", "easeOutBounce", 900 ).delay( 1200 ).fadeOut( 400 );
-				 $( "#logged-in-user-details-2" ).fadeOut( 0 ).html( "You are Logged out" ).delay( 1000 ).fadeIn( 2000 );
-				 $('#example').DataTable({
-					   retrieve: true, //Retrieves an existing DT instance
-					   destroy: true 
-					}).clear().draw(); 
-					//clear() the users data from temporary memory and then 
-						//redraw the table so that it renders with the enhancements made by DT but with no user data
-					//This allows for the appearence of the enhanced table to remain intact
+				$( "#submitButton" ).attr( 'value', "Sign In" );
+                $( "#logged-in-user-details" )
+				    .html( "Signing Out..." )
+				    .fadeIn( 400 )
+					.effect( "highlight", "easeOutBounce", 900 )
+					.fadeOut( 400 );
+				$( ".username" ).html( '' );
+				$( "#email" ).html( '' );						   
+				$( "#member_since" ).html( '' );
+				$( "#customerid" ).html( '' );
+				$( ".ship_address" ).html( '' );
+				$( ".ship_city" ).html( '' );
+				$( ".ship_state" ).html( '' );
+				$( ".ship_zip" ).html( '' );
+				$(".total-cart-items")
+				    .html( "Items: " + '' )
+				    .fadeIn( 400 )
+					.effect( "highlight", "easeOutBounce", 700 )
+					.fadeOut( 400 );
+				$(".cart-subtotal-price")
+				    .html( "Subtotal: " + '' )
+				    .fadeIn( 400 ).effect( "highlight", "easeOutBounce", 900 )
+					.delay( 600 )
+					.fadeOut( 400 );
+				$(".total-savings")
+				    .html( "Savings: " + '' )
+				    .fadeIn( 400 )
+					.effect( "highlight", "easeOutBounce", 900 )
+					.delay( 1200 )
+					.fadeOut( 400 );
+				$("#logged-in-user-details-2")
+				    .fadeOut( 0 )
+				    .html( "You are Logged out" )
+					.delay( 1000 )
+					.fadeIn( 2000 );
+				$('#example').DataTable({
+					  retrieve: true, //Retrieves an existing DT instance
+					  destroy: true 
+				   }).clear().draw(); 
+					   //clear() the users data from temporary memory and then 
+					   //redraw the table so that it renders with the enhancements made by DT but with no user data
+					   //This allows for the appearence of the enhanced table to remain intact
+					   //instead of reverting back to the original table HTML.
 				var active = $( "#application" ).accordion( "option", "active" );
-				// setter - set the 2nd accordion tab to open
-				$( "#application" ).accordion( "option", "active", 3 );
-						//instead of reverting back to the original table HTML.
-				// Hide the loading gif.
-				$(".spinner").hide();
+				    // setter - set the 2nd accordion tab to open
+				$( "#application" ).accordion( "option", "active", 3 );					
 			});
 		} else {					  
 		$.ajax({
 			type:"POST",
 			url:"../php/class-login.php",			
-			//the data object contains the username and password and is 
-			//used to submit the users credentials to the class-login.php script
+			    //the data object contains the username and password and is 
+			    //used to submit the users credentials to the class-login.php script
 			data:{username:userName, password:passWord}
 			}).done(function( html ) {
 				$( "#logged-in-user-details-2" ).html( '' );
@@ -417,18 +412,24 @@ $(document).ready( function () {
 					$( ".bill_zip" ).html( data.bill_zip );
 					$( ".bill_phone" ).html( data.bill_phone );
 				}, "json");
-						  $.post( "../php/cart-summary.php", function( data ) { 
-							  $(".total-cart-items").html( "Items: " + data.total_cart_items ).fadeIn( 400 ).effect( "highlight", "easeOutBounce", 900 );
-							  $(".cart-subtotal-price").html( "Subtotal: " + data.cart_subtotal_price ).fadeIn( 400 ).effect( "highlight", "easeOutBounce", 900 );
-							  $(".total-savings").html( "Savings: " + data.total_savings ).fadeIn( 400 ).effect( "highlight", "easeOutBounce", 900 );
-						  }, "json" );
-
+					$.post( "../php/cart-summary.php", function( data ) { 
+						$(".total-cart-items")
+						    .html( "Items: " + data.total_cart_items )
+							.fadeIn( 400 )
+							.effect( "highlight", "easeOutBounce", 900 );
+						$(".cart-subtotal-price")
+						    .html( "Subtotal: " + data.cart_subtotal_price )
+							.fadeIn( 400 )
+							.effect( "highlight", "easeOutBounce", 900 );
+						$(".total-savings")
+						    .html( "Savings: " + data.total_savings )
+							.fadeIn( 400 )
+							.effect( "highlight", "easeOutBounce", 900 );
+					}, "json" );
 				$( "#logged-in-user-details" ).effect( "highlight", "easeOutBounce", 900 );
-
 				var active = $( "#application" ).accordion( "option", "active" );
-				// setter - set the 2nd accordion tab to open
+				    // setter - set the 2nd accordion tab to open
 				$( "#application" ).accordion( "option", "active", 3 );
-				
 				$('#example').DataTable({
 					retrieve:true,
 					destroy:true
@@ -436,83 +437,67 @@ $(document).ready( function () {
 			}); 
 		};
 	});	// Closing tags for login module.			  	
-	
-	// Javascript for Add New Discount Module
-    // select all the a tag with name equal to modal
+	    // Javascript for Add New Discount Module
+        // select all the a tag with name equal to modal
     $('input[name=submit]').click(function (e) {
-        // Cancel the link behavior
+            // Cancel the link behavior
         e.preventDefault();
-        // Get the A tag
-        // The var id = '#dialog' or <a href="#dialog">
-        // associates the <a> tag with the <div id="dialog"> tag
-        // making it possible to identify what pops up when the event
-        // is triggered.
+			// Get the A tag
+			// The var id = '#dialog' or <a href="#dialog">
+			// associates the <a> tag with the <div id="dialog"> tag
+			// making it possible to identify what pops up when the event
+			// is triggered.
         var id = $(this).attr('id');
-
-        // Get the screen height and width
+            // Get the screen height and width
         var maskHeight = $("#application").height();
         var maskWidth = $(".container").width();
-
-        // Set height and width to mask to fill up the whole screen
+            // Set height and width to mask to fill up the whole screen
         $('#mask').css({
             'width': maskWidth,
             'height': maskHeight
         });
-
-        // transition effect
+            // transition effect
         $('#mask').fadeIn(500);
         $('#mask').fadeTo("fast", 0.8);
-
-        // Get the window height and width
+            // Get the window height and width
         var winH = $(window).height();
         var winW = $(window).width();
-		//alert( "the winH is: " + winH + " and the winW is: " + winW );
-        // Set the popup window to center
+		    //alert( "the winH is: " + winH + " and the winW is: " + winW );
+            // Set the popup window to center
         $(id).css('top', maskHeight / 2 - $(id).height() / 2);
         $(id).css('left', maskWidth / 2 - $(id).width() / 2);
-
-        // transition effect
+            // transition effect
         $(id).fadeIn(500);
-
     });
-
-    // if close button is clicked
+        // if close button is clicked
     $('button').click(function (e) {
         // Cancel the link behavior
         e.preventDefault();
-
         $('#mask').hide();
         $('.window').hide();
     });
-
-    // if mask is clicked
+        // if mask is clicked
     $('#mask').click(function () {
         $('#mask').hide();
         $('.window').hide();
     });
 
     $(window).resize(function () {
-
         var box = $('#boxes .window');
-
-        // Get the screen height and width
+            // Get the screen height and width
         var maskHeight = $("#application").height();
         var maskWidth = $(".container").width();
-
-        // Set height and width to mask to fill up the whole screen
+            // Set height and width to mask to fill up the whole screen
         $('#mask').css({
             'width': maskWidth,
             'height': maskHeight
         });
-
-        // Get the window height and width
+            // Get the window height and width
         var winH = $(window).height();
         var winW = $(window).width();
-
-        // Set the popup window to center
+            // Set the popup window to center
         box.css('top', winH / 2 - box.height() / 2);
         box.css('left', winW / 2 - box.width() / 2);
-
     });
 	$("#fuck").click(function() {
 		var discountCode = $( "#discount_code" ).val();
@@ -536,7 +521,6 @@ $(document).ready( function () {
 					width: "auto",
 					resizable: false,
 					autoOpen: true,
-					//appendTo: "#messages",
 					buttons: {
 						Ok: function() {
 							$( this ).dialog( "close" );
@@ -550,22 +534,14 @@ $(document).ready( function () {
 						effect: "fade",
 						duration: 100
 					}
-				});
-	
+				});	
 				// Reload table data following the update the user just made.
-					table.ajax.reload();
-					
-					//After the discount data table is reloaded this code acivates the 
-					//accordion and automatically opens the user discounts tab.					
+					table.ajax.reload();					
+					    //After the discount data table is reloaded this code acivates the 
+					    //accordion and automatically opens the user discounts tab.					
 					var active = $( "#application" ).accordion( "option", "active" );
 						// setter - set the 5th accordion tab to open
 						$( "#application" ).accordion( "option", "active", 3 );
-					/*if(isset($_SESSION['M_added']) && ($_SESSION['M_added'] !== '')) {						   
-					if(true) {
-						// setter - set the 5th accordion tab to open
-						$( "#application" ).accordion( "option", "active", 4 );
-					} else {
-						$( "#application" ).accordion( "option", "active", 3 );*/
 			});
 	}); // Closing tags for the add-new-discount-module.	
 	$("#change-pw-dialog").dialog({
@@ -594,30 +570,9 @@ $(document).ready( function () {
 
 // jeditable plugin for jQuery. Enables one click updates for the accound details module.
 $(function () {
-    $(".editable_select").editable("../php/class-update-user-account.php", {
-        indicator: '<img src="../images/loading.gif">',
-        data: "{'Lorem ipsum':'Lorem ipsum','Ipsum dolor':'Ipsum dolor','Dolor sit':'Dolor sit'}",
-        type: "select",
-        submit: "OK",
-        style: "inherit",
-        submitdata: function () {
-            return {
-                id: 2
-            };
-        }
-    });
-    $(".editable_select_json").editable("../php/class-update-user-account.php", {
-        indicator: '<img src="../images/ajax-loader.gif">',
-        loadurl: "json.php",
-        type: "select",
-        submit: "OK",
-        style: "inherit"
-    });
     $(".editable_textarea").editable("../php/class-update-user-account.php", {
         indicator: "<img src='../images/ajax-loader.gif'>",
         type: 'text',
-        // id : 'elementid',
-        // name : 'newvalue',
         submitdata: {
             _method: "post"
         },
@@ -625,17 +580,5 @@ $(function () {
         submit: 'OK',
         cancel: 'cancel',
         cssclass: "field"
-    });
-    $(".click").editable("../php/class-update-user-account.php", {
-        indicator: "<img src='../images/ajax-loader.gif'>",
-        tooltip: "Delete this discount.",
-        style: "inherit"
-    });
-    $(".dblclick").editable("../php/class-delete-user-discount.php", {
-        indicator: "<img src='../images/ajax-loader.gif'>",
-        tooltip: "Doubleclick to edit...",
-        event: "dblclick",
-        style: "inherit",
-        type: "button"
     });
 });
