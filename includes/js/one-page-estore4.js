@@ -69,7 +69,7 @@ $(document).ready( function () {
         stateSave: true,
         ajax: {
             type: "POST",
-            url: "../../test/ids-objects4.php",
+            url: "../php/ids-objects4.php",
 			data: null,
         },
 			// Oddly enough, if the initial ordering of the table
