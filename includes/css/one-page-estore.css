@@ -1,3 +1,4 @@
+
 body {
 	background: none repeat scroll 0 0 #113044;
 	font-size: 100%;
@@ -507,7 +508,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ed5a00', e
 	font-variant: small-caps;
 	text-align: center;
 	}
-	#tabs
+	#tabs, .tabs
 	{
         display: block;
     position: relative;
@@ -521,7 +522,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ed5a00', e
         margin-top: 0px;
         z-index: 1;
         margin-left: 0.2em;
-        width: 684px;
+        width: 674px;
         display: block;
         border-radius: 0 2px 2px 100px;
         border: 2px solid rgb(248, 96, 11);
@@ -533,7 +534,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ed5a00', e
         margin-top: 0px;
         z-index: 1;
         margin-left: 2px;
-        width: 684px;
+        width: 674px;
         display: block;
         border-radius: 0 2px 100px 0px;
         border: 2px solid rgb(248, 96, 11);
